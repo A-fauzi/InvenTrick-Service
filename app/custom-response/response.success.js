@@ -1,6 +1,6 @@
 exports.successMessage = (data) => {
   const result = {
-    message: `Success create user ${data.fullName}`,
+    message: `Success create ${data.fullName}`,
     data: data,
   };
 
