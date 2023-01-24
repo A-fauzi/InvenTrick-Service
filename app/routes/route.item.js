@@ -1,5 +1,5 @@
 exports.routeItems = (app) => {
-  const ItemsController = require("../controllers/Items/contorller.items.js");
+  const ItemsController = require("../controllers/items/contorller.items.js");
 
   app.post("/item/create", ItemsController.create);
 
