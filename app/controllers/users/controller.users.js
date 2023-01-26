@@ -15,7 +15,7 @@ exports.create = (req, res) => {
   user
     .save()
     .then((data) => {
-      res.send(successMessage(data));
+      res.send(successMessage(data.fullName));
     })
     .catch((err) => {
       // Set custom error for unique keys

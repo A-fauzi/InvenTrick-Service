@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const { dbConnect, App } = require("./config.js");
 const { routes } = require("./routes/app.route.js");
@@ -12,6 +13,8 @@ exports.serverRun = () => {
 
   // Init express
   const app = express();
+
+  app.use(cors());
 
   // app express config
   App(app, bodyParser);

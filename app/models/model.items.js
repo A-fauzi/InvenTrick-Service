@@ -15,6 +15,42 @@ const ItemSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  sub_category: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  specification: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+  },
+  model: {
+    type: String,
+    required: true,
+  },
+  code_oracle: {
+    type: String,
+    required: true,
+  },
+  description_oracle: {
+    type: String,
+    required: true,
+  },
 
   created_at: String,
   updated_at: String,
