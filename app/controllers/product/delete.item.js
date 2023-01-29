@@ -1,7 +1,4 @@
-const { errorMessage } = require("../../custom-response/response.error.js");
-const { currentDate } = require("../../utils/currentDate.js");
-const Item = require("../../models/model.items.js");
-const { successMessage } = require("../../custom-response/response.success.js");
+const Item = require("../../models/model.product.js");
 
 exports.deleteItem = (req, res) => {
   Item.findByIdAndRemove(req.params.itemId)

@@ -5,26 +5,26 @@ const { findOne } = require("./find.one.js");
 const { update } = require("./update.js");
 
 // Create and save a new item
-exports.create = (req, res) => {
+exports.createProduct = (req, res) => {
   create(req, res);
 };
 
 // Retrieve all item from the database.
-exports.findAll = (req, res) => {
+exports.findAllProduct = (req, res) => {
   findAll(req, res);
 };
 
 // Find a single message with a itemId
-exports.findOne = (req, res) => {
+exports.findOneProduct = (req, res) => {
   findOne(req, res);
 };
 
 // Update a message identified by the itemId in the request
-exports.update = (req, res) => {
+exports.updateProduct = (req, res) => {
   update(req, res);
 };
 
 // Delete a message with the specified itemId in the request
-exports.delete = (req, res) => {
+exports.deleteProduct = (req, res) => {
   deleteItem(req, res);
 };

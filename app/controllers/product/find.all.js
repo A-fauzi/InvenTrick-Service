@@ -1,6 +1,6 @@
 const { errorMessage } = require("../../custom-response/response.error.js");
 const { currentDate } = require("../../utils/currentDate.js");
-const Item = require("../../models/model.items.js");
+const Item = require("../../models/model.product.js");
 const { successMessage } = require("../../custom-response/response.success.js");
 
 exports.findAll = (req, res) => {

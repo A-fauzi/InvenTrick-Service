@@ -1,9 +1,7 @@
-const { routeExample } = require("./route.example");
-const { routeItems } = require("./route.item");
+const { routeProduct } = require("./route.product");
 const { routeUsers } = require("./route.users");
 
 exports.routes = (app) => {
-  routeExample(app);
   routeUsers(app);
-  routeItems(app);
+  routeProduct(app)
 };

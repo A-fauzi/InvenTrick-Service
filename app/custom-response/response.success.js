@@ -1,6 +1,6 @@
-exports.successMessage = (data) => {
+exports.successMessage = (message, data) => {
   const result = {
-    message: `Success create`,
+    message: message,
     data: data,
   };
 

@@ -11,6 +11,10 @@ const ItemSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  qty: {
+    type: Number,
+    required: true
+  },
   category: {
     type: String,
     required: true,
@@ -58,4 +62,4 @@ const ItemSchema = mongoose.Schema({
 
 // ItemSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model("Items", ItemSchema);
+module.exports = mongoose.model("Products", ItemSchema);

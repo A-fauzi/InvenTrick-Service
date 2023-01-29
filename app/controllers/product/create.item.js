@@ -1,27 +1,13 @@
 const { errorMessage } = require("../../custom-response/response.error.js");
 const { currentDate } = require("../../utils/currentDate.js");
-const Item = require("../../models/model.items.js");
+const Item = require("../../models/model.product.js");
 const { successMessage } = require("../../custom-response/response.success.js");
-
-const multer = require("multer");
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "../../uploads");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname);
-//   },
-// });
-
-// const uploadImage = multer({
-//   storage: storage,
-// }).single("image");
 
 exports.create = (req, res) => {
   const item = new Item({
     code_items: req.body.code_items,
     name: req.body.name,
+    qty: 1,
     category: req.body.category,
     sub_category: req.body.sub_category,
     image: req.body.image,
@@ -38,7 +24,7 @@ exports.create = (req, res) => {
   item
     .save()
     .then((data) => {
-      res.send(successMessage(data));
+      res.send(successMessage("Create product success!!", data));
     })
     .catch((err) => {
       // Set custom error for unique keys

@@ -1,7 +1,8 @@
+// Local
 exports.dbConnect = (mongoose) => {
   mongoose.Promise = global.Promise;
   mongoose
-    .connect("mongodb://127.0.0.1:27017/test", { useNewUrlParser: true })
+    .connect("mongodb://127.0.0.1:27017/warehouse", { useNewUrlParser: true })
     .then(() => {
       console.log("Successfully connect to the database");
     })
