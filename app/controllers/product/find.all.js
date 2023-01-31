@@ -8,7 +8,7 @@ exports.findAll = (req, res) => {
     .then((data) => {
       res.send({
         message: "data items",
-        count: `Jumlah items ${data.length}`,
+        count: `${data.length}`,
         data: data,
       });
     })

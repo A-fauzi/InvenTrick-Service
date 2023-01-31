@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -5,10 +6,8 @@ const mongoose = require("mongoose"); // local
 const { dbConnect, App } = require("./config.js");
 const { routes } = require("./routes/app.route.js");
 
-
-
 exports.serverRun = () => {
-  let PORT = 3131;
+  let PORT = process.env.PORT;
 
   // db mongo connect
   // Local

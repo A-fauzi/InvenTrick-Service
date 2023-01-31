@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const item = new Item({
     code_items: req.body.code_items,
     name: req.body.name,
-    qty: 1,
+    qty: req.body.qty,
     category: req.body.category,
     sub_category: req.body.sub_category,
     image: req.body.image,
@@ -26,14 +26,14 @@ exports.create = (req, res) => {
     .then((data) => {
       res.send(successMessage("Create product success!!", data));
     })
-    .catch((err) => {
+    .catch((err, data) => {
       // Set custom error for unique keys
 
       console.error(`\nERROR REQUEST: ${errorMessage(err)}`);
 
       res.status(500).send({
         // message: errorMessage(err),
-        message: errorMessage(err),
+        message: errorMessage(err)
       });
     });
 };
