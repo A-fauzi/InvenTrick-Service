@@ -4,6 +4,7 @@ require('dotenv').config()
 exports.dbConnect = (mongoose) => {
   mongoose.Promise = global.Promise;
   mongoose
+    // .connect(process.env.DB_URI_LOCAL, { useNewUrlParser: true })
     .connect(process.env.DB_URI_ATLAS, { useNewUrlParser: true })
     .then(() => {
       console.log("Successfully connect to the database");
