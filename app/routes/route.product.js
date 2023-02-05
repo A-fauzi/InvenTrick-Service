@@ -12,3 +12,4 @@ exports.routeProduct = (app) => {
 
   app.delete("/product/:itemId", deleteProduct);
 };
+

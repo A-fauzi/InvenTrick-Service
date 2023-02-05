@@ -16,8 +16,8 @@ exports.create = (req, res) => {
     location: req.body.location,
     status: req.body.status,
     model: req.body.model,
-    code_oracle: req.body.code_oracle,
-    description_oracle: req.body.description_oracle,
+    lot: req.body.lot,
+    exp: req.body.exp,
     created_at: currentDate(),
     updated_at: "",
   });

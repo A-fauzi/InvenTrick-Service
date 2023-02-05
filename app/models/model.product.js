@@ -47,11 +47,11 @@ const ItemSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  code_oracle: {
+  lot: {
     type: String,
     required: true,
   },
-  description_oracle: {
+  exp: {
     type: String,
     required: true,
   },
@@ -59,7 +59,5 @@ const ItemSchema = mongoose.Schema({
   created_at: String,
   updated_at: String,
 });
-
-// ItemSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model("Products", ItemSchema);
