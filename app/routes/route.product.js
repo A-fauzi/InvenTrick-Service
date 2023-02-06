@@ -1,4 +1,4 @@
-const { createProduct, findAllProduct, findOneProduct, updateProduct, deleteProduct } = require("../controllers/product/ProductController");
+const { findOneByCode, createProduct, findAllProduct, findOneProduct, updateProduct, deleteProduct } = require("../controllers/product/ProductController");
 
 exports.routeProduct = (app) => {
 
@@ -11,5 +11,7 @@ exports.routeProduct = (app) => {
   app.put("/product/:itemId", updateProduct);
 
   app.delete("/product/:itemId", deleteProduct);
+
+  app.get("/product/", findOneByCode)
 };
 

@@ -60,4 +60,8 @@ const ItemSchema = mongoose.Schema({
   updated_at: String,
 });
 
+ItemSchema.statics.customFindOne = function (query, cb) {
+  return this.findOne(query, cb)
+}
+
 module.exports = mongoose.model("Products", ItemSchema);

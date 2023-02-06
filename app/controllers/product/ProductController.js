@@ -3,6 +3,7 @@ const { deleteItem } = require("./delete.item.js");
 const { findAll } = require("./find.all.js");
 const { findOne } = require("./find.one.js");
 const { update } = require("./update.js");
+const { findOneByCode } = require("./findByCode.js")
 
 // Create and save a new item
 exports.createProduct = (req, res) => {
@@ -28,3 +29,7 @@ exports.updateProduct = (req, res) => {
 exports.deleteProduct = (req, res) => {
   deleteItem(req, res);
 };
+
+exports.findOneByCode = (req, res) => {
+  findOneByCode(req, res)
+}

@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const item = new Item({
     code_items: req.body.code_items,
     name: req.body.name,
-    qty: req.body.qty,
+    qty: 0,
     category: req.body.category,
     sub_category: req.body.sub_category,
     image: req.body.image,
