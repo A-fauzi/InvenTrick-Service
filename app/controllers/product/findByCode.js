@@ -1,4 +1,4 @@
-const Item = require("../../models/model.product.js");
+const Item = require("../../models/product/model.product.js");
 
 exports.findOneByCode = (req, res) => {
     const query = req.query

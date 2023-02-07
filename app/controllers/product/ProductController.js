@@ -3,7 +3,9 @@ const { deleteItem } = require("./delete.item.js");
 const { findAll } = require("./find.all.js");
 const { findOne } = require("./find.one.js");
 const { update } = require("./update.js");
-const { findOneByCode } = require("./findByCode.js")
+const { findOneByCode } = require("./findByCode.js");
+const { createStockHistory } = require("./StockHistory.js");
+
 
 // Create and save a new item
 exports.createProduct = (req, res) => {
@@ -32,4 +34,8 @@ exports.deleteProduct = (req, res) => {
 
 exports.findOneByCode = (req, res) => {
   findOneByCode(req, res)
+}
+
+exports.stockHistory = (req, res) => {
+  createStockHistory(req, res)
 }
