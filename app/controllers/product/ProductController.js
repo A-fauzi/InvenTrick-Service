@@ -5,6 +5,7 @@ const { findOne } = require("./find.one.js");
 const { update } = require("./update.js");
 const { findOneByCode } = require("./findByCode.js");
 const { createStockHistory } = require("./StockHistory.js");
+const { findAllStockHistories } = require("./get.stock.history.js");
 
 
 // Create and save a new item
@@ -38,4 +39,8 @@ exports.findOneByCode = (req, res) => {
 
 exports.stockHistory = (req, res) => {
   createStockHistory(req, res)
+}
+
+exports.getStockHistories = (req, res) => {
+  findAllStockHistories(req, res)
 }
