@@ -30,7 +30,7 @@ exports.update = (req, res) => {
           message: "item not found with id " + req.params.itemId,
         });
       }
-      res.send(successMessage('Product updated!'));
+      res.send(successMessage('Product updated!', data));
     })
     .catch((err) => {
       if (err.kind === "ObjectId") {
