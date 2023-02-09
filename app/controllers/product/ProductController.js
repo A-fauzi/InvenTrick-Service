@@ -6,7 +6,10 @@ const { update } = require("./update.js");
 const { findOneByCode } = require("./findByCode.js");
 const { createStockHistory } = require("./StockHistory.js");
 const { findAllStockHistories } = require("./get.stock.history.js");
-const { createCategory } = require("./category/product.category.js");
+const { createCategory } = require("./category/create.category.js");
+const { getAllCategories } = require("./category/get.categories.js");
+const { updateCategories } = require("./category/update.category.js");
+const { deleteCategories } = require("./category/delete.category.js");
 
 
 // Create and save a new item
@@ -49,4 +52,16 @@ exports.getStockHistories = (req, res) => {
 // category product
 exports.createCategoryController = (req, res) => {
   createCategory(req, res)
+}
+
+exports.getAllCategories = (req, res) => {
+  getAllCategories(req, res)
+}
+
+exports.updateCategory = (req, res) => {
+  updateCategories(req, res)
+}
+
+exports.deleteCategory = (req, res) => {
+  deleteCategories(req, res)
 }

@@ -1,4 +1,4 @@
-const { findOneByCode, createProduct, findAllProduct, findOneProduct, updateProduct, deleteProduct, stockHistory, getStockHistories, createCategoryController } =
+const { findOneByCode, createProduct, findAllProduct, findOneProduct, updateProduct, deleteProduct, stockHistory, getStockHistories, createCategoryController, getAllCategories, updateCategory, deleteCategory } =
   require("../controllers/product/ProductController");
 const { findAllStockHistories } = require("../controllers/product/get.stock.history");
 
@@ -24,4 +24,7 @@ exports.routeProduct = (app) => {
 
   // Category product
   app.post("/category/create", createCategoryController)
+  app.get("/category/all", getAllCategories)
+  app.put("/category/:categoryId", updateCategory)
+  app.delete("/category/:categoryId", deleteCategory)
 };
