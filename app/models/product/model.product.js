@@ -7,6 +7,10 @@ const ItemSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
+  uid: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
