@@ -21,6 +21,7 @@ exports.create = (req, res) => {
     exp: req.body.exp,
     created_at: currentDate(),
     updated_at: "",
+    path_storage: req.body.path_storage
   });
   item
     .save()

@@ -69,6 +69,10 @@ const ItemSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  path_storage: {
+    type: String,
+    required: true,
+  },
 
   created_at: String,
   updated_at: String,
