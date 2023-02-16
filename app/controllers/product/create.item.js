@@ -6,7 +6,7 @@ const { successMessage } = require("../../custom-response/response.success.js");
 exports.create = (req, res) => {
   const item = new Item({
     code_items: req.body.code_items,
-    uid: req.body.uid,
+    user: req.body.user,
     name: req.body.name,
     qty: 0,
     category: req.body.category,

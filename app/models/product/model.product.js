@@ -7,9 +7,19 @@ const ItemSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  uid: {
-    type: String,
-    required: true,
+  user: {
+    uid: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true
+    },
+    user_photo: {
+      type: String,
+      required: true
+    }
   },
   name: {
     type: String,
