@@ -4,10 +4,14 @@ const mongoose = require("mongoose");
 const User = mongoose.model(
     "User",
     new mongoose.Schema({
-        uid: {
+        // uid: {
+        //     type: String,
+        //     required: [true, "uid is required!"],
+        //     unique: [true, "uid already exists!"]
+        // },
+        username: {
             type: String,
-            required: [true, "uid is required!"],
-            unique: [true, "uid already exists!"]
+            required: [true, "username is required"],
         },
         fullName: {
             type: String,
