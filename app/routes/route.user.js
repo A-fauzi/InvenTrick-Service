@@ -10,6 +10,16 @@ module.exports = function (app) {
         next();
     });
 
+    /*
+    Catatan: 
+
+    authJwt.verifyToken, : user access
+    authJwt.isAdmin, : admin
+    authJwt.isModerator : moderator access
+
+    
+    */
+
     app.get("/api/test/all", controller.allAccess);
 
     app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
