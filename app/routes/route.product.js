@@ -7,43 +7,27 @@ const controller = require("../controllers/user/user.controller");
 
 exports.routeProduct = (app) => {
 
-  // app.get("/api/test/all", controller.allAccess);
-
-  //   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
-
-  //   app.get(
-  //       "/api/test/mod",
-  //       [authJwt.verifyToken, authJwt.isModerator],
-  //       controller.moderatorBoard
-  //   );
-
-  //   app.get(
-  //       "/api/test/admin",
-  //       [authJwt.verifyToken, authJwt.isAdmin],
-  //       controller.adminBoard
-  //   );
-
   // Product
-  app.post("/product/create", [authJwt.verifyToken, authJwt.isAdmin], createProduct);
+  app.post("/product/create", [authJwt.verifyToken, authJwt.isModerator], createProduct);
 
-  app.get("/product/all", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], findAllProduct);
+  app.get("/product/all", [authJwt.verifyToken], findAllProduct);
 
-  app.get("/product/:itemId", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], findOneProduct);
+  app.get("/product/:itemId", [authJwt.verifyToken], findOneProduct);
 
-  app.put("/product/:itemId", [authJwt.verifyToken, authJwt.isAdmin], updateProduct);
+  app.put("/product/:itemId", [authJwt.verifyToken, authJwt.isModerator], updateProduct);
 
-  app.delete("/product/:itemId", [authJwt.verifyToken, authJwt.isAdmin], deleteProduct);
+  app.delete("/product/:itemId", [authJwt.verifyToken, authJwt.isModerator], deleteProduct);
 
-  app.get("/product", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], findOneByCode)
+  app.get("/product", [authJwt.verifyToken], findOneByCode)
 
   // Stock history
-  app.post("/stock-history", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], stockHistory)
+  app.post("/stock-history", [authJwt.verifyToken, authJwt.isModerator], stockHistory)
 
-  app.get("/stock-history", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], getStockHistories)
+  app.get("/stock-history", [authJwt.verifyToken, authJwt.isModerator], getStockHistories)
 
   // Category product
-  app.post("/category/create", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], createCategoryController)
-  app.get("/category/all", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], getAllCategories)
-  app.put("/category/:categoryId", [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], updateCategory)
-  app.delete("/category/:categoryId", [authJwt.verifyToken, authJwt.isAdmin], deleteCategory)
+  app.post("/category/create", [authJwt.verifyToken, authJwt.isModerator], createCategoryController)
+  app.get("/category/all", [authJwt.verifyToken, authJwt.isModerator], getAllCategories)
+  app.put("/category/:categoryId", [authJwt.verifyToken, authJwt.isModerator], updateCategory)
+  app.delete("/category/:categoryId", [authJwt.verifyToken, authJwt.isModerator], deleteCategory)
 };
