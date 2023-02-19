@@ -1,3 +1,5 @@
+const Item = require("../../models/model.user");
+
 exports.allAccess = (req, res) => {
     res.status(200).send("Public Content.");
 };
@@ -12,4 +14,20 @@ exports.adminBoard = (req, res) => {
 
 exports.moderatorBoard = (req, res) => {
     res.status(200).send("Moderator Content.");
+};
+
+exports.findAllUser = (req, res) => {
+    Item.find()
+        .then((data) => {
+            res.send({
+                message: "data items",
+                count: `${data.length}`,
+                data: data,
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving item.",
+            });
+        });
 };
