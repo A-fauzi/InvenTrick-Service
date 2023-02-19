@@ -18,11 +18,12 @@ exports.moderatorBoard = (req, res) => {
 
 exports.findAllUser = (req, res) => {
     Item.find()
+        .populate("roles", "-__v")
         .then((data) => {
             res.send({
                 message: "data items",
                 count: `${data.length}`,
-                data: data,
+                data: data
             });
         })
         .catch((err) => {
