@@ -29,12 +29,13 @@ isAdmin = (req, res, next) => {
             return;
         }
 
-        Role.find(
-            {
-                _id: { $in: user.roles }
-            },
+        Role.find({ _id: { $in: user?.roles || '' } },
             (err, roles) => {
                 if (err) {
+                    if (err.kind === "ObjectId" || err.name === "CastError") {
+                        return res.status(401).send({ message: "Unauthorized!" });
+                    }
+
                     res.status(500).send({ message: err });
                     return;
                 }
@@ -62,10 +63,14 @@ isModerator = (req, res, next) => {
 
         Role.find(
             {
-                _id: { $in: user.roles }
+                _id: { $in: user?.roles || '' }
             },
             (err, roles) => {
                 if (err) {
+                    if (err.kind === "ObjectId" || err.name === "CastError") {
+                        return res.status(401).send({ message: "Unauthorized!" });
+                    }
+
                     res.status(500).send({ message: err });
                     return;
                 }

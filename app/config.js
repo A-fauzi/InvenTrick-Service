@@ -65,7 +65,7 @@ function initUser() {
       const user = new User({
         username: "admin",
         email: "admin@gmail.com",
-        password: bcrypt.hashSync("@AbkjkHKjh101010", 8),
+        password: bcrypt.hashSync(process.env.ADMIN_PASS, 8),
         fullName: "Admin",
         division: "admin"
       });
