@@ -15,7 +15,6 @@ exports.dbConnect = (mongoose) => {
     .then(() => {
       console.log("Successfully connect to the database");
       initial()
-      initUser()
     })
     .catch((err) => {
       console.log("Could not connect to the database. Error...", err);
@@ -33,6 +32,7 @@ function initial() {
           console.log("error", err);
         }
 
+        initUser()
         console.log("added 'user' to roles collection");
       });
 
@@ -43,6 +43,7 @@ function initial() {
           console.log("error", err);
         }
 
+        initUser()
         console.log("added 'moderator' to roles collection");
       });
 
@@ -53,6 +54,7 @@ function initial() {
           console.log("error", err);
         }
 
+        initUser()
         console.log("added 'admin' to roles collection");
       });
     }
