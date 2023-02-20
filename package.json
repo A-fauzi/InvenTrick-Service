@@ -10,6 +10,7 @@
   "author": "afauzi",
   "license": "ISC",
   "dependencies": {
+    "add": "^2.0.6",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
@@ -23,6 +24,10 @@
     "mongoose-unique-validator": "^3.1.0",
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2",
-    "nodemon": "^2.0.20"
+    "node-localstorage": "^2.2.1",
+    "nodemon": "^2.0.20",
+    "or": "^0.2.0",
+    "store": "^2.0.12",
+    "yarn": "^1.22.19"
   }
 }

@@ -1,5 +1,8 @@
+const { LocalStorage } = require("node-localstorage");
 const { successMessage } = require("../../custom-response/response.success");
 const Item = require("../../models/model.user");
+
+
 
 exports.allAccess = (req, res) => {
     res.status(200).send("Public Content.");
@@ -60,8 +63,6 @@ exports.findOneUserById = (req, res) => {
 
 // }
 
-
-
 exports.deleteOneById = (req, res) => {
     Item.findByIdAndRemove(req.params.userId)
         .then((data) => {
@@ -70,7 +71,12 @@ exports.deleteOneById = (req, res) => {
                     message: "user not found with id " + req.params.userId,
                 });
             }
-            res.send({ message: "user deleted successfully!" });
+            var localStorage = new LocalStorage('./banned_token')
+            localStorage.setItem('banned_token', data.jwt_token)
+            res.send({
+                message: "user deleted successfully!",
+                banned_token: localStorage.getItem('banned_token'),
+            });
         })
         .catch((err) => {
             if (err.kind === "ObjectId" || err.name === "NotFound") {

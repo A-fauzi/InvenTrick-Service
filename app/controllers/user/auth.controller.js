@@ -12,7 +12,8 @@ exports.signUp = (req, res) => {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8),
         fullName: req.body.fullName,
-        division: req.body.division
+        division: req.body.division,
+        jwt_token: "null"
     });
 
     user.save((err, user) => {
@@ -100,12 +101,29 @@ exports.signIn = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
+            updateToken(user._id, user.username, user.email, authorities, token, res)
+        });
+};
+
+function updateToken(idUser, username, email, authorities, token, res) {
+    User.findByIdAndUpdate(idUser, {
+        jwt_token: token
+    }, { new: true })
+        .then(() => {
             res.status(200).send({
-                id: user._id,
-                username: user.username,
-                email: user.email,
+                message: `update token success on id ${idUser}`,
+                id: idUser,
+                username: username,
+                email: email,
                 roles: authorities,
                 accessToken: token
             });
-        });
-};
+
+        })
+        .catch((err) => {
+            console.log(err.message);
+            res.send({
+                message: "update token failed on id " + idUser
+            })
+        })
+}

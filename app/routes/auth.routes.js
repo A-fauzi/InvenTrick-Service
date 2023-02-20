@@ -23,7 +23,7 @@ module.exports = function (app) {
 
     app.post("/api/auth/signin", controller.signIn);
 
-    app.post("/api/auth/signout", authJwt.verifyToken, (req, res) => {
-        res.status(200).json({ message: 'Logout successful' });
-    })
+    // app.post("/api/auth/signout", authJwt.verifyToken, (req, res) => {
+    //     res.status(200).json({ message: 'Logout successful' });
+    // })
 };

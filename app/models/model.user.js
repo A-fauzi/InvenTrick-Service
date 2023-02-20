@@ -46,6 +46,10 @@ const User = mongoose.model(
             type: String,
             required: true
         },
+        jwt_token: {
+            type: String,
+            required: true
+        },
         created_at: String,
         updated_at: String,
     })

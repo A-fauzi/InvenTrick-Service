@@ -4,6 +4,10 @@ const db = require("../models");
 const User = db.user;
 const Role = db.role;
 
+var store = require('store');
+const { banned_tokens } = require("../controllers/user/user.controller.js");
+const { LocalStorage } = require("node-localstorage");
+
 
 
 verifyToken = (req, res, next) => {
@@ -11,6 +15,14 @@ verifyToken = (req, res, next) => {
 
     if (!token) {
         return res.status(403).send({ message: "No token provided!" });
+    }
+
+    // check token banned
+    var localStorage = new LocalStorage('./banned_token')
+    if (token === localStorage.getItem('banned_token')) {
+        return res.status(404).send({
+            message: "user is deleted and token not valid"
+        });
     }
 
     jwt.verify(token, config.secret, (err, decoded) => {
