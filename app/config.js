@@ -31,8 +31,6 @@ function initial() {
         if (err) {
           console.log("error", err);
         }
-
-        initUser()
         console.log("added 'user' to roles collection");
       });
 
@@ -42,8 +40,6 @@ function initial() {
         if (err) {
           console.log("error", err);
         }
-
-        initUser()
         console.log("added 'moderator' to roles collection");
       });
 
@@ -53,10 +49,10 @@ function initial() {
         if (err) {
           console.log("error", err);
         }
-
-        initUser()
         console.log("added 'admin' to roles collection");
       });
+
+      initUser()
     }
   })
 }
