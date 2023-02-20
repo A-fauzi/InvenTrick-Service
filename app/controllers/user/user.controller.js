@@ -1,3 +1,4 @@
+const { successMessage } = require("../../custom-response/response.success");
 const Item = require("../../models/model.user");
 
 exports.allAccess = (req, res) => {
@@ -32,3 +33,51 @@ exports.findAllUser = (req, res) => {
             });
         });
 };
+
+exports.findOneUserById = (req, res) => {
+    Item.findById(req.params.userId)
+        .then((data) => {
+            if (!data) {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            res.send(successMessage('Data user', data));
+        })
+        .catch((err) => {
+            if (err.kind === "ObjectId") {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            return res.status(500).send({
+                message: "Error retrieving user with id " + req.params.userId,
+            });
+        });
+}
+
+// exports.updateUserById = () => {
+
+// }
+
+exports.deleteOneById = (req, res) => {
+    Item.findByIdAndRemove(req.params.userId)
+        .then((data) => {
+            if (!data) {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            res.send({ message: "user deleted successfully!" });
+        })
+        .catch((err) => {
+            if (err.kind === "ObjectId" || err.name === "NotFound") {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            return res.status(500).send({
+                message: "Could not delete user with id " + req.params.userId,
+            });
+        });
+}
