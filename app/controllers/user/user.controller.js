@@ -89,3 +89,30 @@ exports.deleteOneById = (req, res) => {
             });
         });
 }
+
+exports.updateStatusActivityUser = (req, res) => {
+    Item.findByIdAndUpdate(req.params.userId, {
+        status_activity: req.body.status_activity
+    },
+        { new: true }
+    )
+        .then((data) => {
+            if (!data) {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            res.send(successMessage('Status updated!', data));
+        })
+        .catch((err) => {
+            if (err.kind === "ObjectId") {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            console.log(err.message);
+            return res.status(500).send({
+                message: "Error updating user with id " + req.params.userId,
+            });
+        });
+}

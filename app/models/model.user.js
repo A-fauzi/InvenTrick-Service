@@ -5,9 +5,9 @@ const User = mongoose.model(
     "User",
     new mongoose.Schema({
         // uid: {
-        //     type: String,
-        //     required: [true, "uid is required!"],
-        //     unique: [true, "uid already exists!"]
+        // type: String,
+        // required: [true, "uid is required!"],
+        // unique: [true, "uid already exists!"]
         // },
         username: {
             type: String,
@@ -41,6 +41,9 @@ const User = mongoose.model(
         division: {
             type: String,
             required: [true, "divisi is required!"]
+        },
+        status_activity: {
+            type: String
         },
         password: {
             type: String,
