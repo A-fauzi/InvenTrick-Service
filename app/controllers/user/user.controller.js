@@ -96,6 +96,7 @@ exports.updateStatusActivityUser = (req, res) => {
     },
         { new: true }
     )
+        .populate("roles", "-__v")
         .then((data) => {
             if (!data) {
                 return res.status(404).send({
