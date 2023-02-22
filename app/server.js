@@ -23,9 +23,9 @@ exports.serverRun = () => {
   io.on('connection', (socket) => {
     console.log('A user connected');
 
-    socket.on('chat message', (msg) => {
-      console.log(`message: `, msg);
-      io.emit('chat message', msg)
+    socket.on('status activity', (msg) => {
+      console.log(`status: `, msg);
+      io.emit('status activity', msg)
     })
 
     socket.on('disconnect', () => {
@@ -40,7 +40,7 @@ exports.serverRun = () => {
 
   routes(app);
 
-  app.listen(PORT, () => {
+  http.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });
 };
