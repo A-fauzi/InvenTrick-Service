@@ -18,20 +18,20 @@ exports.serverRun = () => {
 
   const http = require('http').createServer(app)
 
-  const io = require('socket.io')(http)
+  // const io = require('socket.io')(http)
 
-  io.on('connection', (socket) => {
-    console.log('A user connected');
+  // io.on('connection', (socket) => {
+  //   console.log('A user connected');
 
-    socket.on('status activity', (msg) => {
-      console.log(`status: `, msg);
-      io.emit('status activity', msg)
-    })
+  //   socket.on('status activity', (msg) => {
+  //     console.log(`status: `, msg);
+  //     io.emit('status activity', msg)
+  //   })
 
-    socket.on('disconnect', () => {
-      console.log('A user disconnected');
-    })
-  })
+  //   socket.on('disconnect', () => {
+  //     console.log('A user disconnected');
+  //   })
+  // })
 
   app.use(cors());
 
