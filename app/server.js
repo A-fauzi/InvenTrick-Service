@@ -5,6 +5,8 @@ const cors = require("cors");
 const mongoose = require("mongoose"); // local
 const { dbConnect, App } = require("./config.js");
 const { routes } = require("./routes/app.route.js");
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 exports.serverRun = () => {
   let PORT = process.env.PORT;

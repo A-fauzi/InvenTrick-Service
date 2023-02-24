@@ -15,6 +15,10 @@ exports.dbConnect = (mongoose) => {
     .then(() => {
       console.log("Successfully connect to the database");
       initial()
+      setTimeout(() => {
+        initUser()
+      }, 5000)
+
     })
     .catch((err) => {
       console.log("Could not connect to the database. Error...", err);
@@ -52,7 +56,6 @@ function initial() {
         console.log("added 'admin' to roles collection");
       });
 
-      initUser()
     }
   })
 }
@@ -90,8 +93,6 @@ function initUser() {
                 if (err) {
                   console.log(err)
                 }
-
-                console.log
                 console.log("Admin was registered automatically successfully!");
               });
             }
