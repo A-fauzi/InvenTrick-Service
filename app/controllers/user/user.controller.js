@@ -71,11 +71,11 @@ exports.deleteOneById = (req, res) => {
                     message: "user not found with id " + req.params.userId,
                 });
             }
-            // var localStorage = new LocalStorage('./banned_token')
-            // localStorage.setItem('banned_token', data.jwt_token)
+            var localStorage = new LocalStorage('./banned_token')
+            localStorage.setItem('banned_token', data.jwt_token)
             res.send({
                 message: "user deleted successfully!",
-                // banned_token: localStorage.getItem('banned_token'),
+                banned_token: localStorage.getItem('banned_token'),
             });
         })
         .catch((err) => {

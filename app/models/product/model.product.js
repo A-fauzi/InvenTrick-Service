@@ -8,7 +8,7 @@ const ItemSchema = mongoose.Schema({
     unique: true,
   },
   user: {
-    uid: {
+    _id: {
       type: String,
       required: true,
     },
