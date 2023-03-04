@@ -21,10 +21,11 @@ exports.findAll = async (req, res, next) => {
 
     return res.status(200).json({
       message: "data items",
-      count: `${item.length}`,
+      totalCount: count,
+      countPerPage: `${item.length}`,
       totalPages: Math.ceil(count / limit),
       currentPage: page,
-      item,
+      data: item,
     });
   } catch (err) {
     res.status(500).send({
