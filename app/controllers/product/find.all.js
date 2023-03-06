@@ -14,7 +14,7 @@ exports.findAll = async (req, res, next) => {
       // I don't think i need to explain the math here
       .skip((page - 1) * limit)
       // We sort the data by the date of their creation in descending order (user 1 instead of -1 to get ascending order)
-      .sort({ createdAt: -1 })
+      .sort({ _id: -1 })
 
     // Getting the numbers of products stored in database
     const count = await Item.countDocuments();
