@@ -101,11 +101,11 @@ exports.signIn = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
-            updateToken(user._id, user.username, user.email, authorities, token, res)
+            updateToken(user._id, user.username, user.fullName, user.email, authorities, token, res)
         });
 };
 
-function updateToken(idUser, username, email, authorities, token, res) {
+function updateToken(idUser, username, fullName, email, authorities, token, res) {
     User.findByIdAndUpdate(idUser, {
         jwt_token: token
     }, { new: true })
@@ -114,6 +114,7 @@ function updateToken(idUser, username, email, authorities, token, res) {
                 message: `update token success on id ${idUser}`,
                 id: idUser,
                 username: username,
+                fullName: fullName,
                 email: email,
                 roles: authorities,
                 accessToken: token
