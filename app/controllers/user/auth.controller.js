@@ -103,11 +103,11 @@ exports.signIn = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
-            updateToken(user._id, user.username, user.fullName, user.profile_image, user.email, user.division, authorities, token, res)
+            updateToken(user._id, user.username, user.fullName, user.profile_image, user.path_storage, user.email, user.division, authorities, token, res)
         });
 };
 
-function updateToken(idUser, username, fullName, profile_image, email, division, authorities, token, res) {
+function updateToken(idUser, username, fullName, profile_image, path_storage, email, division, authorities, token, res) {
     User.findByIdAndUpdate(idUser, {
         jwt_token: token
     }, { new: true })
@@ -121,7 +121,8 @@ function updateToken(idUser, username, fullName, profile_image, email, division,
                 email: email,
                 division: division,
                 roles: authorities,
-                accessToken: token
+                accessToken: token,
+                path_storage: path_storage
             });
 
         })
