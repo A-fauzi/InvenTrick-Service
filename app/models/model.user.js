@@ -31,6 +31,10 @@ const User = mongoose.model(
             }
 
         },
+        profile_image: {
+            type: String,
+            required: [true, "image is required"],
+        },
         roles: [
             {
                 type: mongoose.Schema.Types.ObjectId,

@@ -10,6 +10,7 @@ exports.signUp = (req, res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
+        profile_image: req.body.profile_image,
         password: bcrypt.hashSync(req.body.password, 8),
         fullName: req.body.fullName,
         division: req.body.division,
@@ -101,11 +102,11 @@ exports.signIn = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
-            updateToken(user._id, user.username, user.fullName, user.email, authorities, token, res)
+            updateToken(user._id, user.username, user.fullName, user.profile_image, user.email, authorities, token, res)
         });
 };
 
-function updateToken(idUser, username, fullName, email, authorities, token, res) {
+function updateToken(idUser, username, fullName, profile_image, email, authorities, token, res) {
     User.findByIdAndUpdate(idUser, {
         jwt_token: token
     }, { new: true })
@@ -115,6 +116,7 @@ function updateToken(idUser, username, fullName, email, authorities, token, res)
                 id: idUser,
                 username: username,
                 fullName: fullName,
+                profile_image: profile_image,
                 email: email,
                 roles: authorities,
                 accessToken: token
