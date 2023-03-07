@@ -14,6 +14,7 @@ exports.signUp = (req, res) => {
         password: bcrypt.hashSync(req.body.password, 8),
         fullName: req.body.fullName,
         division: req.body.division,
+        path_storage: "null",
         jwt_token: "null"
     });
 
