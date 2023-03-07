@@ -35,6 +35,10 @@ const User = mongoose.model(
             type: String,
             required: [true, "image is required"],
         },
+        path_storage: {
+            type: String,
+            required: [true, "image is required"],
+        },
         roles: [
             {
                 type: mongoose.Schema.Types.ObjectId,
