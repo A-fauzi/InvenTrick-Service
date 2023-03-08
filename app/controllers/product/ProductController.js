@@ -10,6 +10,7 @@ const { createCategory } = require("./category/create.category.js");
 const { getAllCategories } = require("./category/get.categories.js");
 const { updateCategories } = require("./category/update.category.js");
 const { deleteCategories } = require("./category/delete.category.js");
+const { findByUserId } = require("./findByUserId.js");
 
 
 // Create and save a new item
@@ -64,4 +65,8 @@ exports.updateCategory = (req, res) => {
 
 exports.deleteCategory = (req, res) => {
   deleteCategories(req, res)
+}
+
+exports.findProdByUserId = (req, res) => {
+  findByUserId(req, res)
 }

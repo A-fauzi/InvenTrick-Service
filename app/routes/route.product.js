@@ -1,4 +1,4 @@
-const { findOneByCode, createProduct, findAllProduct, findOneProduct, updateProduct, deleteProduct, stockHistory, getStockHistories, createCategoryController, getAllCategories, updateCategory, deleteCategory, findsAllByUid } =
+const { findOneByCode, createProduct, findAllProduct, findOneProduct, updateProduct, deleteProduct, stockHistory, getStockHistories, createCategoryController, getAllCategories, updateCategory, deleteCategory, findsAllByUid, findProdByUserId } =
   require("../controllers/product/ProductController");
 const { findAllStockHistories } = require("../controllers/product/get.stock.history");
 
@@ -18,7 +18,10 @@ exports.routeProduct = (app) => {
 
   app.delete("/product/:itemId", [authJwt.verifyToken, authJwt.isModerator], deleteProduct);
 
+  // Query find
   app.get("/product", [authJwt.verifyToken], findOneByCode)
+  app.get("/product-user", [authJwt.verifyToken], findProdByUserId)
+
 
   // Stock history
   app.post("/stock-history", [authJwt.verifyToken, authJwt.isModerator], stockHistory)
