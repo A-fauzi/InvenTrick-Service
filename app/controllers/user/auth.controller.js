@@ -17,7 +17,7 @@ exports.signUp = (req, res) => {
         path_storage: "null",
         jwt_token: "null"
     });
-
+    
     user.save((err, user) => {
         if (err) {
             res.status(500).send({ message: err });
@@ -44,7 +44,6 @@ exports.signUp = (req, res) => {
 
                         res.send({
                             message: "User was registered successfully!",
-                            data: user
                         });
                     });
                 }
@@ -65,7 +64,6 @@ exports.signUp = (req, res) => {
 
                     res.send({
                         message: "User was registered successfully!",
-                        data: user
                     });
                 });
             });
