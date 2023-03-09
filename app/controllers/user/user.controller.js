@@ -22,6 +22,7 @@ exports.moderatorBoard = (req, res) => {
 
 exports.findAllUser = (req, res) => {
     Item.find()
+        .sort({ _id: -1 })
         .populate("roles", "-__v")
         .then((data) => {
             res.send({
