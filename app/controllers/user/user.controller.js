@@ -60,6 +60,8 @@ exports.findOneUserById = (req, res) => {
 }
 
 exports.updateUserById = (req, res) => {
+
+    //BUG:  Jika request tidak di isi, masih bisa lolos
     Item.findByIdAndUpdate(
         req.params.userId,
         {
@@ -78,7 +80,7 @@ exports.updateUserById = (req, res) => {
                     message: "user not found with id " + req.params.userId,
                 });
             }
-            res.send(successMessage('Product updated!', data));
+            res.send(successMessage('User updated!', data));
         })
         .catch((err) => {
             if (err.kind === "ObjectId") {

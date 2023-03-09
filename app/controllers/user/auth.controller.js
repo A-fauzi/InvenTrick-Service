@@ -10,11 +10,11 @@ exports.signUp = (req, res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        profile_image: req.body.profile_image,
+        profile_image: "null",
         password: bcrypt.hashSync(req.body.password, 8),
         fullName: req.body.fullName,
         division: req.body.division,
-        path_storage: req.body.path_storage,
+        path_storage: "null",
         jwt_token: "null"
     });
 
