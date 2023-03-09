@@ -80,7 +80,16 @@ exports.updateUserById = (req, res) => {
                     message: "user not found with id " + req.params.userId,
                 });
             }
-            res.send(successMessage('User updated!', data));
+            res.send({
+                message: "User was update successfully!",
+                data: {
+                    "_id": data._id,
+                    username: data.username,
+                    email: data.email,
+                    fullName: data.fullName,
+                    division: data.division
+                }
+            });
         })
         .catch((err) => {
             if (err.kind === "ObjectId") {

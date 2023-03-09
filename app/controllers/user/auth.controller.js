@@ -17,7 +17,7 @@ exports.signUp = (req, res) => {
         path_storage: "null",
         jwt_token: "null"
     });
-    
+
     user.save((err, user) => {
         if (err) {
             res.status(500).send({ message: err });
@@ -44,6 +44,13 @@ exports.signUp = (req, res) => {
 
                         res.send({
                             message: "User was registered successfully!",
+                            data: {
+                                "_id": user._id,
+                                username: user.username,
+                                email: user.email,
+                                fullName: user.fullName,
+                                division: user.division
+                            }
                         });
                     });
                 }
@@ -64,6 +71,13 @@ exports.signUp = (req, res) => {
 
                     res.send({
                         message: "User was registered successfully!",
+                        data: {
+                            "_id": user._id,
+                            username: user.username,
+                            email: user.email,
+                            fullName: user.fullName,
+                            division: user.division
+                        }
                     });
                 });
             });
@@ -118,15 +132,17 @@ function updateToken(idUser, username, fullName, profile_image, path_storage, em
         .then(() => {
             res.status(200).send({
                 message: `update token success on id ${idUser}`,
-                id: idUser,
-                username: username,
-                fullName: fullName,
-                profile_image: profile_image,
-                email: email,
-                division: division,
-                roles: authorities,
-                accessToken: token,
-                path_storage: path_storage
+                data: {
+                    '_id': idUser,
+                    username: username,
+                    fullName: fullName,
+                    profile_image: profile_image,
+                    email: email,
+                    division: division,
+                    // roles: authorities,
+                    'jwt_token': token,
+                    path_storage: path_storage
+                }
             });
 
         })
