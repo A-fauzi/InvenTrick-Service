@@ -7,7 +7,7 @@ const { dbConnect, App } = require("./config.js");
 const { routes } = require("./routes/app.route.js");
 
 exports.serverRun = () => {
-  let PORT = process.env.PORT;
+  let PORT = process.env.PORT || 5000;
 
   // db mongo connect
   // Local
