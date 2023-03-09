@@ -59,9 +59,39 @@ exports.findOneUserById = (req, res) => {
         });
 }
 
-// exports.updateUserById = () => {
-
-// }
+exports.updateUserById = (req, res) => {
+    Item.findByIdAndUpdate(
+        req.params.userId,
+        {
+            username: req.body.username,
+            email: req.body.email,
+            profile_image: req.body.profile_image,
+            fullName: req.body.fullName,
+            division: req.body.division,
+            path_storage: req.body.path_storage,
+        },
+        { new: true }
+    )
+        .then((data) => {
+            if (!data) {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            res.send(successMessage('Product updated!', data));
+        })
+        .catch((err) => {
+            if (err.kind === "ObjectId") {
+                return res.status(404).send({
+                    message: "user not found with id " + req.params.userId,
+                });
+            }
+            console.log(err.message);
+            return res.status(500).send({
+                message: "Error updating user with id " + req.params.userId,
+            });
+        });
+}
 
 exports.deleteOneById = (req, res) => {
     Item.findByIdAndRemove(req.params.userId)
