@@ -16,7 +16,7 @@ const ItemSchema = mongoose.Schema({
       type: String,
       required: true
     },
-    user_photo: {
+    profile_image: {
       type: String,
       required: true
     }
