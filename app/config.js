@@ -10,8 +10,13 @@ var bcrypt = require("bcrypt");
 exports.dbConnect = (mongoose) => {
   mongoose.Promise = global.Promise;
   mongoose
+<<<<<<< HEAD
     .connect(process.env.DB_URI_LOCAL, { useNewUrlParser: true })
     // .connect(process.env.DB_URI_ATLAS, { useNewUrlParser: true, useUnifiedTopology: true })
+=======
+  //  .connect(process.env.DB_URI_LOCAL, { useNewUrlParser: true })
+    .connect(process.env.DB_URI_ATLAS, { useNewUrlParser: true })
+>>>>>>> ebd6dd822aba1bc5b5c3f60f47c18363aba51673
     .then(() => {
       console.log("Successfully connect to the database");
       initial()
