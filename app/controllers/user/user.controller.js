@@ -70,7 +70,7 @@ exports.updateUserById = (req, res) => {
             email: req.body.email,
             profile_image: req.body.profile_image,
             fullName: req.body.fullName,
-            division: req.body.division,
+            position: req.body.position,
             path_storage: req.body.path_storage,
         },
         { new: true }
@@ -88,7 +88,7 @@ exports.updateUserById = (req, res) => {
                     username: data.username,
                     email: data.email,
                     fullName: data.fullName,
-                    division: data.division
+                    position: data.position
                 }
             });
         })

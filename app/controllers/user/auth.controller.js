@@ -13,7 +13,7 @@ exports.signUp = (req, res) => {
         profile_image: "null",
         password: bcrypt.hashSync(req.body.password, 8),
         fullName: req.body.fullName,
-        division: req.body.division,
+        position: req.body.position,
         path_storage: "null",
         jwt_token: "null"
     });
@@ -49,7 +49,7 @@ exports.signUp = (req, res) => {
                                 username: user.username,
                                 email: user.email,
                                 fullName: user.fullName,
-                                division: user.division
+                                position: user.position
                             }
                         });
                     });
@@ -76,7 +76,7 @@ exports.signUp = (req, res) => {
                             username: user.username,
                             email: user.email,
                             fullName: user.fullName,
-                            division: user.division
+                            position: user.position
                         }
                     });
                 });
@@ -121,11 +121,11 @@ exports.signIn = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
-            updateToken(user._id, user.username, user.fullName, user.profile_image, user.path_storage, user.email, user.division, authorities, token, res)
+            updateToken(user._id, user.username, user.fullName, user.profile_image, user.path_storage, user.email, user.position, authorities, token, res)
         });
 };
 
-function updateToken(idUser, username, fullName, profile_image, path_storage, email, division, authorities, token, res) {
+function updateToken(idUser, username, fullName, profile_image, path_storage, email, position, authorities, token, res) {
     User.findByIdAndUpdate(idUser, {
         jwt_token: token
     }, { new: true })
@@ -138,7 +138,7 @@ function updateToken(idUser, username, fullName, profile_image, path_storage, em
                     fullName: fullName,
                     profile_image: profile_image,
                     email: email,
-                    division: division,
+                    position: position,
                     // roles: authorities,
                     'jwt_token': token,
                     path_storage: path_storage

@@ -46,9 +46,9 @@ const User = mongoose.model(
                 required: [true, "Please specify user role"]
             }
         ],
-        division: {
+        position: {
             type: String,
-            required: [true, "divisi is required!"]
+            required: [true, "position is required!"]
         },
         status_activity: {
             type: String
