@@ -72,7 +72,7 @@ function initUser() {
         email: "admin@gmail.com",
         password: bcrypt.hashSync(process.env.ADMIN_PASS, 8),
         fullName: "Admin",
-        division: "admin",
+        position: "admin",
         path_storage: "null",
         profile_image: "https://i.pinimg.com/564x/c2/e0/b1/c2e0b1aad596f510cca5c232bc15364f.jpg"
       });
