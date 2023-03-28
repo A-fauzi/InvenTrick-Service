@@ -4,6 +4,7 @@ const Item = require("../../models/product/model.product.history.js")
 const { currentDate } = require("../../utils/currentDate.js")
 
 exports.createStockHistory = (req, res) => {
+
     const item = new Item({
         code_items: req.body.code_items,
         name: req.body.name,
