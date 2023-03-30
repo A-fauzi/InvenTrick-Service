@@ -14,6 +14,9 @@ const ItemSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    user_id: {
+        type: String,
+    },
     status: {
         type: String,
         required: true

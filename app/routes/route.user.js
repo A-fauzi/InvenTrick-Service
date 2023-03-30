@@ -21,7 +21,7 @@ module.exports = function (app) {
     */
 
     app.get("/api/user/all", [authJwt.verifyToken, authJwt.isAdmin], controller.findAllUser)
-    app.get("/api/user/:userId", [authJwt.verifyToken, authJwt.isAdmin], controller.findOneUserById)
+    app.get("/api/user/:userId", [authJwt.verifyToken, authJwt.isModerator], controller.findOneUserById)
 
     app.delete("/api/user/:userId", [authJwt.verifyToken, authJwt.isAdmin], controller.deleteOneById)
 
