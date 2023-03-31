@@ -9,6 +9,7 @@ exports.createStockHistory = (req, res) => {
         code_items: req.body.code_items,
         name: req.body.name,
         qty: req.body.qty,
+        user_id: req.body.user_id,
         status: req.body.status,
         created_at: currentDate()
     });
