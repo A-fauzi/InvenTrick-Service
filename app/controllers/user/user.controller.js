@@ -40,6 +40,7 @@ exports.findAllUser = (req, res) => {
 
 exports.findOneUserById = (req, res) => {
     Item.findById(req.params.userId)
+        .populate("roles", "-__v")
         .then((data) => {
             if (!data) {
                 return res.status(404).send({
