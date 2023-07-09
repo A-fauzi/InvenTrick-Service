@@ -39,9 +39,12 @@ To set up the backend of the InvenTrick application, follow these steps:
 5. Create a `.env` file in the root directory and configure the following environment variables:
 
    ```
+   DB_URI_LOCAL=<Your MongoCompas URI>
+   DB_URI_ATLAS=<Your MongoDB Atlas connection URI>
    PORT=3000
-   MONGODB_URI=<Your MongoDB Atlas connection URI>
-   JWT_SECRET=<Your JWT secret key>
+   TZ=<Your TimeZone>
+   TOKEN_KEY=<Your JWT secret key>
+   ADMIN_PASS=<Your create admin pass>
    ```
 
 6. Run the application: `npm start`.
